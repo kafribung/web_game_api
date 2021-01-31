@@ -69,13 +69,4 @@ class TravelController extends Controller
         $travel->update($data);
         return redirect('/travel')->with('msg', 'Data wisata berhasil diedit!');
     }
-
-    // Destroy
-    public function destroy($id)
-    {
-        $travel = Travel::findOrFail($id);
-        $this->authorize('isOwner', $travel);
-        $travel->bg == 'img_travels/default_travel.jpg' ? null : Storage::delete($travel->bg);
-        $travel->delete();
-    }
 }

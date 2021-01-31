@@ -1,4 +1,4 @@
-@extends('layouts.master_dash', ['title' => 'Dashboard - travel edit'])
+@extends('layouts.master_dash', ['title' => 'Dashboard - Game Edit'])
 @section('content')
 <div class="app-main__inner" id="app">
     <div class="app-page-title">
@@ -8,8 +8,8 @@
                     <i class="pe-7s-display1 icon-gradient bg-premium-dark">
                     </i>
                 </div>
-                <div>travel edit
-                    <div class="page-title-subheading">edit data wisata.</div>
+                <div>Game edit
+                    <div class="page-title-subheading">Edit data game.</div>
                 </div>
             </div>
         </div>
@@ -18,11 +18,11 @@
         <div class="col-md-12">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <h5 class="card-title">Lengkapi data wisata</h5>
-                    <form action="{{ route('travel.update', $travel->slug) }}" method="POST" enctype="multipart/form-data">
+                    <h5 class="card-title">Lengkapi data game</h5>
+                    <form action="{{ route('game.update', $game->slug) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
-                        <x-backend.travel_form :travel="$travel"></x-backend.travel_form>
+                        <x-backend.game_form :game="$game"></x-backend.game_form>
                         <button class="float-right mt-1 btn btn-warning">Edit</button>
                     </form>
                 </div>

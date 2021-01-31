@@ -51,7 +51,7 @@
                 
                 <li class="app-sidebar__heading">Game</li>
                 <li>
-                    <a href="{{ route('game.index') }}" class="{{ Request::is('game')  ? 'mm-active' : '' }}">
+                    <a href="{{ route('game.index') }}" class="{{ Request::segment(1) == 'game'  ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-plugin"></i>
                         Data Game
                     </a>

@@ -11,6 +11,13 @@ class Game extends Model
 
     protected $touches = ['user'];
 
+    // RouteKeyName
+    public function getRouteKeyName()
+    {
+        return 'slug';   
+    }
+
+    // Mass assigment
     protected $guarded = [
         'created_at',
         'updated_at' 

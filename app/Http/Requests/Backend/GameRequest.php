@@ -24,7 +24,7 @@ class GameRequest extends FormRequest
     public function rules()
     {
         return [
-            'img'         => ['required', 'mimes:png,jpg,jpeg'],
+            'img'         => [request()->isMethod('patch') ? '' : 'required', 'mimes:png,jpg,jpeg'],
             'name'        => ['required', 'string', 'unique:games,name,'. optional($this->game)->id],
             'duration'    => ['required', 'numeric'],
             'description' => ['required'],

@@ -8,7 +8,7 @@
                     <i class="pe-7s-display1 icon-gradient bg-premium-dark">
                     </i>
                 </div>
-                <div>Admin Create
+                <div>Game Create
                     <div class="page-title-subheading">Tambah data game.</div>
                 </div>
             </div>
