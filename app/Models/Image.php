@@ -16,4 +16,10 @@ class Image extends Model
     {
         return $this->belongsTo(Participant::class);
     }
+
+    // Mutaror
+    public function getTakeImgAttribute()
+    {
+        return url('storage',  $this->img);
+    }
 }

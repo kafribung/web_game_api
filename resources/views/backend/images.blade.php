@@ -1,4 +1,4 @@
-@extends('layouts.master_dash', ['title' => 'Dashboard - Peserta'])
+@extends('layouts.master_dash', ['title' => 'Dashboard - Karya Peserta'])
 @section('content')
 <div class="app-main__inner" id="app">
     <div class="app-page-title">
@@ -8,8 +8,8 @@
                     <i class="pe-7s-add-user icon-gradient bg-premium-dark">
                     </i>
                 </div>
-                <div>Peserta
-                    <div class="page-title-subheading">Kelola data peserta.</div>
+                <div>Karya Peserta
+                    <div class="page-title-subheading">Kelola data karya peserta.</div>
                 </div>
             </div>
         </div>
@@ -23,59 +23,35 @@
         <div class="col-md-12">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <h5 class="card-title">Data peserta</h5>
+                    <h5 class="card-title">Karya Peserta</h5>
                     <table class="mb-0 table table-hover">
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Nama</th>
-                            <th>Hp</th>
-                            <th>Jabatan</th>
-                            <th>Tahap1</th>
-                            <th>Tahap2</th>
-                            <th>Tahap3</th>
-                            <th>Tahap4</th>
-                            <th>Tahap5</th>
-                            <th>Tahap6</th>
-                            <th>Total</th>
-                            <th>Action</th>
+                            <th>Gambar</th>
                         </tr>
                         </thead>
                         <tbody>
                         @php
                             $angkaAwal = 1
                         @endphp
-                        @forelse ($participants as $participant)
+                        @forelse ($participant->images as $image)
                         <tr>
                             <th scope="row">{{ $angkaAwal++ }}</th>
-                            <td>{{ empty($participant->name) ? '-' :  $participant->name  }}</td>
-                            <td>{{ empty($participant->hp) ? '-' : $participant->hp  }}</td>
-                            <td>{{ $participant->position->name }}</td>
-                            <td>{{ $stage1 = $participant->stage1 }}</td>
-                            <td>{{ $stage2 = $participant->stage2 }}</td>
-                            <td>{{ $stage3 = $participant->stage3 }}</td>
-                            <td>{{ $stage4 = $participant->stage4 }}</td>
-                            <td>{{ $stage5 = $participant->stage5 }}</td>
-                            <td>{{ $stage6 = $participant->stage6 }}</td>
-                            <td>{{ ($stage1 + $stage2 + $stage3 + $stage4 + $stage5 + $stage6)  }}</td>
+                            <td><img src="{{  $image->takeImg }}" alt="Error" height="200" width="200"> </td>
                             <td>
-                                <a href="/image/{{ $participant->id }}" class="btn btn-info btn-sm"><i class="fa fa-images"></i></a>
                                 @if (Auth::user()->king())
-                                <a href="/qr-code/{{ $participant->id }}" class="btn btn-dark btn-sm"><i class="fa fa-qrcode"></i></a>
                                 <button ref="deleteparticipant" v-on:click="deleteparticipant({{ $participant->id }})" class="btn btn-danger btn-sm d-inline-block"><i class="fa fa-trash"></i></button>
                                 @endif
                             </td>
                         </tr>    
                         @empty
                         <tr>
-                            <td colspan="12"><h5>Data peserta belum ditambahkan</h5></td>
+                            <td colspan="12"><h5>Data karya peserta belum ada</h5></td>
                         </tr>
                         @endforelse
                         </tbody>
                     </table>
-                    <div class="float-right">
-                        {{ $participants->links() }}
-                    </div>
                 </div>
             </div>
         </div>

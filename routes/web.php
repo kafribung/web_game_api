@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\Backend\{AdminController, DashboardController, GameController, ParticipantController, PrivacyPolicyController,  QrcodeController};
+use App\Http\Controllers\Backend\{AdminController, DashboardController, GameController, ImageController, ParticipantController, PrivacyPolicyController,  QrcodeController};
 
 
 Route::get('/', function () {
@@ -15,11 +15,15 @@ Route::middleware('admin')->group(function(){
     Route::resource('game', GameController::class);
     // Participant
     Route::get('participant', [ParticipantController::class, 'index'])->name('participant.index');
+    // Participant IMG
+    Route::get('image/{participant:id}', [ImageController::class, 'show'])->name('image.index');
+
     // QRCode
     Route::prefix('qr-code')->group(function(){
         Route::get('/{id}', [QrcodeController::class, 'index']);
         Route::post('/{id}/print', [QrcodeController::class, 'print']);
     });
+    
 });
 
 // Privacy Policy
