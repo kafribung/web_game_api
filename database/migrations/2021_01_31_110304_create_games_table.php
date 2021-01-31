@@ -20,7 +20,7 @@ class CreateGamesTable extends Migration
             $table->text('description');
             $table->string('duration');
             $table->string('img')->default('img_games/default_game.jpg');
-            $table->bigInteger('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

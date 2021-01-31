@@ -79,6 +79,7 @@
     </div>
 </div>
 
+{{-- Delete belu diataur --}}
 @push('script_vue_js_axios_sweet')
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>   
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
