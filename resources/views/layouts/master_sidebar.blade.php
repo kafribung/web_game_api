@@ -33,52 +33,28 @@
     <div class="scrollbar-sidebar">
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
-                <li class="app-sidebar__heading">Dashboards</li>
+                <li class="app-sidebar__heading">Dashboard</li>
                 <li>
                     <a href="/dashboard" class="{{ Request::is('dashboard') ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-rocket"></i>
-                        Dashboard Saya
+                        My Dashboard
                     </a>
                 </li>
 
                 <li class="app-sidebar__heading">Manajemen Admin</li>
                 <li>
-                    <a href="/admin" class="{{ Request::segment(1) == 'admin' ? 'mm-active' : '' }}">
+                    <a href="{{ route('admin.index') }}" class="{{ Request::segment(1) == 'admin' ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-users"></i>
                         Data Admin
                     </a>
                 </li>
                 
-                <li class="app-sidebar__heading">Wisata</li>
+                <li class="app-sidebar__heading">Game</li>
                 <li>
-                    <a href="" class="{{ Request::segment(1) ==  'travel' || Request::segment(1) ==  'travel-img' || Request::is('qr-code/*') ? 'mm-active' : '' }}">
-                        <i class="metismenu-icon pe-7s-plane"></i>
-                        Wisata
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                    <a href="{{ route('game.index') }}" class="{{ Request::is('game')  ? 'mm-active' : '' }}">
+                        <i class="metismenu-icon pe-7s-plugin"></i>
+                        Data Game
                     </a>
-                    <ul>
-                        <li>
-                            <a href="/travel">
-                                <i class="metismenu-icon"></i>
-                                Data Wisata
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/travel/create">
-                                <i class="metismenu-icon"></i>
-                                Tambah Wisata
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout').submit();">
-                        <i class="metismenu-icon pe-7s-power"></i>
-                        Logout
-                    </a>
-                    <form action="{{ route('logout') }}" method="POST" id="logout" class="d-inline-flex">
-                        @csrf
-                    </form>
                 </li>
             </ul>
         </div>

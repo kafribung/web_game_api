@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\Backend\{AdminController, DashboardController, PrivacyPolicyController, TravelController, TravelimageController, QrcodeController};
+use App\Http\Controllers\Backend\{AdminController, DashboardController, GameController,PrivacyPolicyController,  QrcodeController};
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::middleware('admin')->group(function(){
     Route::get('dashboard', DashboardController::class);
     Route::resource('admin', AdminController::class);
-    Route::resource('travel', TravelController::class);
+    Route::resource('game', GameController::class);
     // QRCode
     Route::prefix('qr-code')->group(function(){
         Route::get('/{slug}', [QrcodeController::class, 'index']);

@@ -74,7 +74,6 @@
             el: '#app',
             methods: {
                 deleteAdmin(id) {
-
                     swal({
                             title: "Apakah kamu yakin?",
                             text: "Setelah dihapus, Anda tidak akan dapat memulihkan file  ini!",

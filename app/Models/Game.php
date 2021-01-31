@@ -19,4 +19,10 @@ class Game extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    // Mutators
+    public function getTakeImg()
+    {
+        return url('storage', $this->img);
+    }
 }
