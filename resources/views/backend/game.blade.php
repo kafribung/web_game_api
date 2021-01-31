@@ -33,8 +33,7 @@
                 <img src="{{ $game->takeImg }}" class="card-img-top" alt="Error" width="200" height="200"> 
                 <p>{!!  Str::limit($game->description, 200)  !!}</p>
                 @can('isOwner', $game)
-                {{-- <a href="{{ route('game.edit', $game->slug) }}" class="btn btn-outline-warning mb-1"><i class="fa fa-edit"></i></a> --}}
-                <a href="/game/{{ $game->slug }}/edit" class="btn btn-outline-warning mb-1"><i class="fa fa-edit"></i></a>
+                <a href="{{ route('game.edit', $game->slug) }}" class="btn btn-outline-warning mb-1"><i class="fa fa-edit"></i></a>
                 <button ref="delete" v-on:click='deleteGame({{ $game->id }})' class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
                 @endcan
             </div>

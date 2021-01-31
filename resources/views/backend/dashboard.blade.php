@@ -157,7 +157,7 @@
                         <h3>Selamat datang {{ Auth::user()->name }}</h3>
                     </div>
                     <div class="card-body justify-content-center text-center">
-                        <p>Menyajikan informasi wisata, tanpa meupakan etika dan sopan santun</p>
+                        <p>Selalu jujur dan berbuat baik kepada sesama</p>
                     </div>
                 </div>
             </div>
