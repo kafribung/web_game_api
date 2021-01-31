@@ -13,6 +13,7 @@ Route::middleware('admin')->group(function(){
     Route::get('dashboard', DashboardController::class);
     Route::resource('admin', AdminController::class);
     Route::resource('game', GameController::class);
+    Route::resource('participant', GameController::class);
     // QRCode
     Route::prefix('qr-code')->group(function(){
         Route::get('/{slug}', [QrcodeController::class, 'index']);

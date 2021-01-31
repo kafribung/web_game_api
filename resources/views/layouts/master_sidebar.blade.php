@@ -56,6 +56,14 @@
                         Data Game
                     </a>
                 </li>
+
+                <li class="app-sidebar__heading">Peserta</li>
+                <li>
+                    <a href="{{ route('game.index') }}" class="{{ Request::segment(1) == 'game'  ? 'mm-active' : '' }}">
+                        <i class="metismenu-icon pe-7s-medal"></i>
+                        Data Peserta
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

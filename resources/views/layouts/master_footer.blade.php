@@ -6,7 +6,7 @@
                     <li class="nav-item">
                         <a href="javascript:void(0);" class="nav-link">
                             <div class="badge badge-success mr-1 ml-0">
-                                <small>KKN-DK</small>
+                                <small>Nomads Dev</small>
                             </div>
                             UIN Alauddin Makassar
                         </a>

@@ -25,6 +25,7 @@ class GameController extends Controller
     // Store
     public function store(GameRequest $request)
     {
+        if (Game::count() >= 6) return redirect('/game')->with('msg', 'Data game maksimal 6!');
         $data = $request->all();
         if ($img = $request->file('img')) {
             $data['img'] = $img->storeAs('img_games', time(). '.' . $img->getClientOriginalExtension());
