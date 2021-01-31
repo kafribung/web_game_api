@@ -13,7 +13,7 @@ class GameRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,7 +27,7 @@ class GameRequest extends FormRequest
             'img'         => ['required', 'mimes:png,jpg,jpeg'],
             'name'        => ['required', 'string', 'unique:games,name,'. optional($this->game)->id],
             'duration'    => ['required', 'numeric'],
-            'description' => ['required', 'string'],
+            'description' => ['required'],
         ];
     }
 }

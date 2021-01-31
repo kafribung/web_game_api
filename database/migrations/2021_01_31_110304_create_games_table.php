@@ -17,10 +17,10 @@ class CreateGamesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->string('description');
+            $table->text('description');
             $table->string('duration');
             $table->string('img')->default('img_games/default_game.jpg');
-            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->bigInteger('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
 use App\Models\Game;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Backend\GameRequest;
 
 class GameController extends Controller
 {
     // Read
     public function index()
     {
-        $games = Game::with('users')->orderBy('id', 'desc')->get();
+        $games = Game::with('user')->orderBy('id', 'desc')->get();
         return view('backend.game', compact('games'));
     }
 
@@ -20,20 +20,17 @@ class GameController extends Controller
     {
         return view('backend_create.game_create');
     }
-    
+
     // Store
-    public function store(TravelRequest $request)
+    public function store(GameRequest $request)
     {
         $data = $request->all();
-        if ($bg = $request->file('bg')) {
-            $data['bg'] = $bg->storeAs('img_travels', time(). '.' . $bg->getClientOriginalExtension());
+        if ($img = $request->file('img')) {
+            $data['img'] = $img->storeAs('img_games', time(). '.' . $img->getClientOriginalExtension());
         }
         $data['slug'] = \Str::slug($request->name);
-        if (Travel::where('slug', $data['slug'])->first() != null) {
-            $data['slug'] .= time();
-        }
-        $request->user()->travels()->create($data);
-        return redirect('/travel')->with('msg', 'Data wisata berhasil ditambahkan!');
+        $request->user()->games()->create($data);
+        return redirect('/game')->with('msg', 'Data game berhasil ditambahkan!');
     }
 
 }

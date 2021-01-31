@@ -9,19 +9,21 @@ class Game extends Model
 {
     use HasFactory;
 
+    protected $touches = ['user'];
+
     protected $guarded = [
         'created_at',
         'updated_at' 
     ];
 
-    // Relation many to one
+    // Relation one to many
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo('App\Models\User');
     }
 
     // Mutators
-    public function getTakeImg()
+    public function getTakeImgAttribute()
     {
         return url('storage', $this->img);
     }

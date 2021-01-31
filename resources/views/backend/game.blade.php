@@ -23,14 +23,14 @@
     <div class="row">
         <a href="{{ route('game.create') }}" class="btn btn-outline-primary mb-1"><i class="fa fa-plus"></i></a>
     </div>
-    
+
     <div class="row" id="app">
         @forelse ($games as $game)
         <div class="col-md-6 col-xl-4">
             <div class="mb-3 card card-body">
                 <h5 class="card-title">{{ $game->name }}</h5>
                 <small>{{ $game->user->name }}</small>
-                <img src="{{ $game->takeImg }}" class="card-img-top" alt="Error" height="300"> 
+                <img src="{{ $game->takeImg }}" class="card-img-top" alt="Error" width="200" height="200"> 
                 <p>{!!  Str::limit($game->description, 200)  !!}</p>
                 <a href="/game-img/{{ $game->slug }}" class="btn btn-outline-dark mb-1 mt-2"><i class="fa fa-image"></i></a>
                 <a href="/qr-code/{{ $game->slug }}" class="btn btn-outline-light mb-1 mt-2"><i class="fa fa-qrcode"></i></a>

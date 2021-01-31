@@ -71,6 +71,6 @@ class User extends Authenticatable
     // Relation one to many
     public function games()
     {
-        return $this->hasMany(Game::class);
+        return $this->hasMany('App\Models\Game');
     }
 }

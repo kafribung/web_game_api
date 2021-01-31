@@ -16,7 +16,7 @@
     @endif
 </div>
 <div class="position-relative form-group">
-    <label for="duration" class="">Durasi</label>
+    <label for="duration" class="">Durasi (Menit)</label>
     <input name="duration" id="duration" placeholder="Lama permainan (menit)" autocomplete="off" type="number" class="form-control" value="{{ old('duration') ?? $game->duration }}">
     @error('duration')
     <small class="text-danger">{{ $message }}</small>
