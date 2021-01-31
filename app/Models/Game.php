@@ -19,7 +19,7 @@ class Game extends Model
     // Relation one to many
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 
     // Mutators

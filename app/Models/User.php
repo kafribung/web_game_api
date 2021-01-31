@@ -65,12 +65,12 @@ class User extends Authenticatable
     // IsAdmin
     public function isAdmin() 
     {
-        return $this->email == "kafri@kafri.com";
+        return $this->email == "admin@admin.baik";
     }
 
     // Relation one to many
     public function games()
     {
-        return $this->hasMany('App\Models\Game');
+        return $this->hasMany(Game::class);
     }
 }
