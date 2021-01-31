@@ -12,9 +12,15 @@ class Participant extends Model
     // Touches
     protected $touches = ['position'];
 
-    // Relation one to many
+    // Relation many to one
     public function position()
     {
         return $this->belongsTo(Position::class);
+    }
+
+    // Relation one to many
+    public function images()
+    {
+        return $this->hasMany(Image::class);
     }
 }
