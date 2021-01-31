@@ -1,15 +1,15 @@
-@extends('layouts.master_dash', ['title' => 'Dashboard - admin'])
+@extends('layouts.master_dash', ['title' => 'Dashboard - Admin'])
 @section('content')
 <div class="app-main__inner" id="app">
     <div class="app-page-title">
         <div class="page-title-wrapper">
             <div class="page-title-heading">
                 <div class="page-title-icon">
-                    <i class="pe-7s-display1 icon-gradient bg-premium-dark">
+                    <i class="pe-7s-add-user icon-gradient bg-premium-dark">
                     </i>
                 </div>
-                <div>admin
-                    <div class="page-title-subheading"> All admin data.</div>
+                <div>Admin
+                    <div class="page-title-subheading">Kelola hak akses dashboard.</div>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
         <div class="col-md-12">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <h5 class="card-title">Table with hover</h5>
+                    <h5 class="card-title">Data admin</h5>
                     @if (Auth::user()->king())
                     <a href="/admin/create" class="btn btn-primary btn-sm float-right"><i class="fa fa-plus"></i></a>
                     @endif
@@ -44,7 +44,7 @@
                         @forelse ($admins as $admin)
                         <tr>
                             <th scope="row">{{ $angkaAwal++ }}</th>
-                            <td><img src="{{ $admin->takeImg }}" alt="Error" width="100"></td>
+                            <td><img  class="img-thumbnail" src="{{ $admin->takeImg }}" alt="Error" width="80"></td>
                             <td>{{ $admin->name }}</td>
                             <td>{{ $admin->email }}</td>
                             <td>
@@ -76,26 +76,25 @@
                 deleteAdmin(id) {
 
                     swal({
-                            title: "Are you sure?",
-                            text: "Once deleted, you will not be able to recover this imaginary file!",
+                            title: "Apakah kamu yakin?",
+                            text: "Setelah dihapus, Anda tidak akan dapat memulihkan file  ini!",
                             icon: "warning",
                             buttons: true,
                             dangerMode: true,
                             })
                             .then((willDelete) => {
                             if (willDelete) {
-                                swal("Poof! Your imaginary file has been deleted!", {
+                                swal("File berhasil dihapus!", {
                                     icon: "success",
                                 });
                                 axios
-                                    // .delete(`/admin/${id}`)
                                     .delete('/admin/' + id)
                                     .then((response) => {
                                     this.$refs.deleteAdmin.parentNode.parentNode.remove();
                                     location.reload();
                                     });
                             } else {
-                                swal("Your imaginary file is safe!");
+                                swal("File gagal dihapus!");
                             }
                         });
                 }

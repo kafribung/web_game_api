@@ -59,7 +59,7 @@ class User extends Authenticatable
     // King
     public function king()
     {
-        return auth()->user()->email == 'kafri@kafri.com' ? true : false;
+        return auth()->user()->email == 'admin@admin.baik' ? true : false;
     }
 
     // IsAdmin

@@ -24,9 +24,9 @@ class AdminRequest extends FormRequest
     public function rules()
     {
         return [
-            'img'    => ['required', 'mimes:,jpeg'],
+            'img'    => ['mimes:png,jpg,jpeg'],
             'name'   => ['required', 'string', 'min:3', 'max:20'],
-            'email'  => ['required', 'string', 'email', 'max:30', 'unique:users'],
+            'email'  => ['required', 'string', 'email', 'max:30', 'unique:users,email,' . optional($this->admin)->id],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ];
     }

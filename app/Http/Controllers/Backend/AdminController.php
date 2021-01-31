@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Backend\AdminRequest;
@@ -27,7 +26,7 @@ class AdminController extends Controller
     public function store(AdminRequest $request)
     {
         if (User::where('role', 1)->count() >= 3) {
-            return redirect('/admin')->with('msg', 'Data Admin MAX 3');
+            return redirect('/admin')->with('msg', 'Data admin maksimal 3');
         }
         $data =  $request->all();
         if ($img = $request->file('img')) {
@@ -36,7 +35,7 @@ class AdminController extends Controller
         $data['password'] = bcrypt($request->password);
         $data['role']     = 1;
         User::create($data);
-        return redirect('/admin')->with('msg', 'Data Admin Berhasil ditambahkan');
+        return redirect('/admin')->with('msg', 'Data admin berhasil ditambahkan');
     }
 
     // Show
@@ -52,21 +51,16 @@ class AdminController extends Controller
     }
 
     // Update
-    public function update(Request $request, User $admin)
+    public function update(AdminRequest $request, User $admin)
     {
-        $data =  $request->validate([
-            'img'    => ['required', 'mimes:,jpeg'],
-            'name'   => ['required', 'string', 'min:3', 'max:20'],
-            'email'  => ['required', 'string', 'email', 'max:30'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        $data =  $request->all();
         if ($img = $request->file('img')) {
             $admin->img == 'img_users/default_user.jpg' ? null : Storage::delete($admin->img);
             $data['img'] = $img->storeAs('img_users', time(). '.' . $img->getClientOriginalExtension());
         }
         $data['password'] = bcrypt($request->password);
         $admin->update($data);
-        return redirect('/admin')->with('msg', 'Data Admin Berhasil diupdate');
+        return redirect('/admin')->with('msg', 'Data admin berhasil diupdate');
     }
 
     // Destroy

@@ -1,4 +1,4 @@
-@extends('layouts.master_dash', ['title' => 'Dashboard - admin create'])
+@extends('layouts.master_dash', ['title' => 'Dashboard - Admin Create'])
 @section('content')
 <div class="app-main__inner" id="app">
     <div class="app-page-title">
@@ -8,8 +8,8 @@
                     <i class="pe-7s-display1 icon-gradient bg-premium-dark">
                     </i>
                 </div>
-                <div>admin create
-                    <div class="page-title-subheading"> tambahkan data admin.</div>
+                <div>Admin Create
+                    <div class="page-title-subheading">Tambah data admin.</div>
                 </div>
             </div>
         </div>
