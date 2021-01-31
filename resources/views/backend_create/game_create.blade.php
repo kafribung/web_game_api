@@ -1,4 +1,4 @@
-@extends('layouts.master_dash', ['title' => 'Dashboard - travel create'])
+@extends('layouts.master_dash', ['title' => 'Dashboard - Game Create'])
 @section('content')
 <div class="app-main__inner" id="app">
     <div class="app-page-title">
@@ -8,8 +8,8 @@
                     <i class="pe-7s-display1 icon-gradient bg-premium-dark">
                     </i>
                 </div>
-                <div>travel create
-                    <div class="page-title-subheading">tambahkan data wisata.</div>
+                <div>Admin Create
+                    <div class="page-title-subheading">Tambah data game.</div>
                 </div>
             </div>
         </div>
@@ -18,10 +18,10 @@
         <div class="col-md-12">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <h5 class="card-title">Lengkapi data wisata</h5>
-                    <form action="{{ route('travel.store') }}" method="POST" enctype="multipart/form-data">
+                    <h5 class="card-title">Lengkapi data game</h5>
+                    <form action="{{ route('game.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <x-backend.travel_form :travel="new App\Models\Travel"></x-backend.travel_form>
+                        <x-backend.game_form :game="new App\Models\Game"></x-backend.game_form>
                         <button class="float-right mt-1 btn btn-primary">Store</button>
                     </form>
                 </div>

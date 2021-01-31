@@ -19,6 +19,11 @@
         <p class="alert alert-success">{{  session('msg') }}</p>
     </div>
     @endif
+
+    <div class="row">
+        <a href="{{ route('game.create') }}" class="btn btn-outline-primary mb-1"><i class="fa fa-plus"></i></a>
+    </div>
+    
     <div class="row" id="app">
         @forelse ($games as $game)
         <div class="col-md-6 col-xl-4">
@@ -36,7 +41,7 @@
             </div>
         </div>
         @empty
-            <small class="text-info">Data game belum ditambahkan</small>
+            <h5 class="text-info">Data game belum ditambahkan</h5>
         @endforelse
     </div>
 </div>
