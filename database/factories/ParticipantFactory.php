@@ -22,7 +22,6 @@ class ParticipantFactory extends Factory
     public function definition()
     {
         return [
-            //
         ];
     }
 }

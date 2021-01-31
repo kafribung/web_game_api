@@ -24,7 +24,7 @@ class CreateParticipantsTable extends Migration
             $table->smallInteger('game5')->default(0)->unsigned();
             $table->smallInteger('game6')->default(0)->unsigned();
             $table->smallInteger('total')->default(0)->unsigned();
-            $table->bigInteger('position_id')->unsigned();
+            $table->bigInteger('position_id')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign('position_id')->references('id')->on('positions')->onDelete('cascade');
