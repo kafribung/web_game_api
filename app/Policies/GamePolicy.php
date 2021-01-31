@@ -2,8 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Game;
-use App\Models\User;
+use App\Models\{Game, User};
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class GamePolicy
@@ -20,8 +19,8 @@ class GamePolicy
         //
     }
 
-    public function isOwner(Game $game, User $user)
+    public function isOwner(User $user,  Game  $game)
     {
-        return $game->user_id === $user->id;  
+        return  $user->id === $game->user_id;
     }
 }

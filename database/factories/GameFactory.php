@@ -22,7 +22,7 @@ class GameFactory extends Factory
     public function definition()
     {
         return [
-            'name'        => $this->faker->sentence,
+            'name'        => $this->faker->sentence(1),
             'duration'    => $this->faker->randomDigitNotNull,
             'description' => $this->faker->paragraph(10),
             'slug'        => \Str::slug($this->faker->sentence),
