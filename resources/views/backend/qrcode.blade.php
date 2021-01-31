@@ -1,4 +1,4 @@
-@extends('layouts.master_dash')
+@extends('layouts.master_dash', ['title' => 'Dashboard - QrCode'])
 @section('content')
 <div class="app-main__inner">
     <div class="app-page-title">
@@ -9,7 +9,7 @@
                     </i>
                 </div>
                 <div>Qr-code
-                    <div class="page-title-subheading">Print Qr-Code.</div>
+                    <div class="page-title-subheading">Cetak Qr-Code.</div>
                 </div>
             </div>
         </div>
@@ -19,11 +19,11 @@
             <div class="card mb-3 widget-content bg-white">
                 <div class="widget-content-wrapper text-black">
                     <div class="widget-content">
-                        {!! QrCode::size(200)->generate($slug); !!}
+                        {!! QrCode::size(200)->generate($id); !!}
                     </div>
                     <div class="widget-content-right">
                         <div class="widget-numbers text-white">
-                            <form action="/qr-code/print" method="POST">
+                            <form action="/qr-code/{{ $id }}/print" method="POST">
                                 @csrf
                                 <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-print"></i></button>
                             </form>

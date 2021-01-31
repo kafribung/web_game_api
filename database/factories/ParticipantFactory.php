@@ -22,6 +22,7 @@ class ParticipantFactory extends Factory
     public function definition()
     {
         return [
+            'position_id' => 19
         ];
     }
 }

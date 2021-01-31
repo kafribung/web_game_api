@@ -9,6 +9,9 @@ class Participant extends Model
 {
     use HasFactory;
 
+    // Touches
+    protected $touches = ['position'];
+
     // Relation one to many
     public function position()
     {

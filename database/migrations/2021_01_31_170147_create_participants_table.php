@@ -17,13 +17,12 @@ class CreateParticipantsTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('hp')->nullable();
-            $table->smallInteger('game1')->default(0)->unsigned();
-            $table->smallInteger('game2')->default(0)->unsigned();
-            $table->smallInteger('game3')->default(0)->unsigned();
-            $table->smallInteger('game4')->default(0)->unsigned();
-            $table->smallInteger('game5')->default(0)->unsigned();
-            $table->smallInteger('game6')->default(0)->unsigned();
-            $table->smallInteger('total')->default(0)->unsigned();
+            $table->smallInteger('stage1')->default(0)->unsigned();
+            $table->smallInteger('stage2')->default(0)->unsigned();
+            $table->smallInteger('stage3')->default(0)->unsigned();
+            $table->smallInteger('stage4')->default(0)->unsigned();
+            $table->smallInteger('stage5')->default(0)->unsigned();
+            $table->smallInteger('stage6')->default(0)->unsigned();
             $table->bigInteger('position_id')->unsigned()->nullable();
             $table->timestamps();
 

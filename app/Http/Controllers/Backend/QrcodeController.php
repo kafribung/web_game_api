@@ -14,15 +14,15 @@ class QrcodeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index($slug)
+    public function index($id)
     {
-        QrCode::size(200)->generate($slug, public_path('qr-codes/qrcode.png'));
-        return view('backend.qrcode', compact('slug'));
+        QrCode::size(200)->generate($id, public_path('qr-codes/' . $id . '.svg'));
+        return view('backend.qrcode', compact('id'));
     }
 
-    public function print()
+    public function print($id)
     {
-        $file = public_path('qr-codes/qrcode.png');
+        $file = public_path('qr-codes/'. $id .'.svg');
         return response()->download($file);
     }
 }
