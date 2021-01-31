@@ -17,8 +17,10 @@ class CreateParticipantsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('hp');
-            $table->string('hp');
+            $table->bigInteger('position_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('position_id')->references('id')->on('positions')->onDelete('cascade');
         });
     }
 

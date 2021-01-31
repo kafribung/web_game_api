@@ -9,8 +9,8 @@ class Position extends Model
 {
     use HasFactory;
 
-    // ! Destroy created_at ann updated_at
-    protected $timestamp = false;
+    // Destroy created_at ann updated_at
+    public $timestamps = false;
 
     // Relation one to many
     public function participants()
