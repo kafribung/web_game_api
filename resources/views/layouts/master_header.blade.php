@@ -58,7 +58,7 @@
                                 {{ Auth::user()->name }}
                             </div>
                             <div class="widget-subheading">
-                                Admin
+                                {{ Auth::user()->king() ? 'Super Admin' : 'Admin'  }}
                             </div>
                         </div>
                     </div>
