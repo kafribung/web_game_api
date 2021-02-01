@@ -12,7 +12,8 @@ class ParticipantController extends Controller
     public function index()
     {
         $participants = Participant::with('position')->paginate(50);
-        return view('backend.participant', compact('participants'));
+        $participantFix = Participant::whereNotNull('name')->count();
+        return view('backend.participant', compact('participants', 'participantFix'));
     }
 
     public function destroy($id)

@@ -23,7 +23,7 @@
         <div class="col-md-12">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <h5 class="card-title">Data peserta</h5>
+                    <h5 class="card-title">Data peserta (Yang Telah Regis: {{ $participantFix }} Orang)</h5>
                     <table class="mb-0 table table-hover">
                         <thead>
                         <tr>
