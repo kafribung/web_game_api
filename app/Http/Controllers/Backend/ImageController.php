@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Image;
 use App\Models\Participant;
-use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -14,8 +14,10 @@ class ImageController extends Controller
         return view('backend.images', compact('participant'));
     }
 
-    public function destroy(Participant $participant)
+    public function destroy($id)
     {
-        dd('delete');
+        $image = Image::findOrFail($id);
+        Storage::delete($image->img);
+        $image->delete();
     }
 }

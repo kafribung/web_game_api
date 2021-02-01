@@ -23,7 +23,7 @@
         <div class="col-md-12">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <h5 class="card-title">Karya Peserta</h5>
+                    <h5 class="card-title">Karya Peserta {{ $participant->name }}</h5>
                     <table class="mb-0 table table-hover">
                         <thead>
                         <tr>
@@ -83,8 +83,7 @@
                                 axios
                                     .delete('/image/' + id)
                                     .then((response) => {
-                                    this.$refs.deleteImage.parentNode.parentNode.remove();
-                                    location.reload();
+                                    this.$refs.deleteImage.parentNode.parentNode.remove()
                                     });
                             } else {
                                 swal("File gagal dihapus!");
