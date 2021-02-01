@@ -49,7 +49,7 @@
                         <div class="widget-subheading">jumlah peserta</div>
                     </div>
                     <div class="widget-content-right">
-                        <div class="widget-numbers text-white"><span>{{ $game }}</span></div>
+                        <div class="widget-numbers text-white"><span>{{ $participant }}</span></div>
                     </div>
                 </div>
             </div>
