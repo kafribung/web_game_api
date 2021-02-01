@@ -12,7 +12,7 @@
         @csrf
         <input type="email" name="email" value="{{ old('email') }}" @error('email') is-invalid @enderror" placeholder="Email" required="required" />
         <input type="password" name="password" value="{{ old('password') }}" @error('password') is-invalid @enderror"  placeholder="Password" required="required" />
-        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in</button>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
     </form>
     <a href="{{ route('privacy.index') }}" target="_blank" class="float-right p-1 text-info">privacy policy</a>
 </div>
