@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\API;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TravelimageResource extends JsonResource
+class QrCodeResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -12,11 +12,8 @@ class TravelimageResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-
     public function toArray($request)
     {
-        return [
-            'img' => url('storage', $this->img),
-        ];
+        return parent::toArray($request);
     }
 }

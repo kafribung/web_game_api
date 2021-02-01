@@ -13,4 +13,9 @@ class ImageController extends Controller
     {
         return view('backend.images', compact('participant'));
     }
+
+    public function destroy(Participant $participant)
+    {
+        dd('delete');
+    }
 }

@@ -17,6 +17,7 @@ Route::middleware('admin')->group(function(){
     Route::get('participant', [ParticipantController::class, 'index'])->name('participant.index');
     // Participant IMG
     Route::get('image/{participant:id}', [ImageController::class, 'show'])->name('image.index');
+    Route::delete('image/{participant:id}', [ImageController::class, 'destroy'])->name('image.destroy');
 
     // QRCode
     Route::prefix('qr-code')->group(function(){

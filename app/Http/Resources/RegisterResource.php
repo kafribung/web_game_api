@@ -2,10 +2,9 @@
 
 namespace App\Http\Resources;
 
-use App\Http\Resources\TravelimageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TravelResource extends JsonResource
+class RegisterResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
