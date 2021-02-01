@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\{ApiFinishController, ApiPositionController, ApiRegisterController};
+use App\Http\Controllers\API\{ApiFinishController, ApiImageController, ApiPositionController, ApiRegisterController};
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +35,5 @@ Route::prefix('finish')->group(function(){
     Route::patch('/{participant:id}', [ApiFinishController::class, 'update']);
 });
 
+// Image
+Route::post('image/{participant:id}', ApiImageController::class);
