@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\{ApiPositionController, ApiRegisterController};
+use App\Http\Controllers\API\{ApiFinishController, ApiPositionController, ApiRegisterController};
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +30,8 @@ Route::prefix('register')->group(function(){
 });
 
 // Finish
+Route::prefix('finish')->group(function(){
+    Route::get('/{participant:id}',[ApiFinishController::class, 'show']);
+    Route::patch('/{participant:id}', [ApiFinishController::class, 'update']);
+});
 
