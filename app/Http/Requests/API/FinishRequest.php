@@ -24,12 +24,12 @@ class FinishRequest extends FormRequest
     public function rules()
     {
         return [
-            'stage1' => 'required',
-            'stage2' => 'required',
-            'stage3' => 'required',
-            'stage4' => 'required',
-            'stage5' => 'required',
-            'stage6' => 'required',
+            'stage1' => 'numeric',
+            'stage2' => 'numeric',
+            'stage3' => 'numeric',
+            'stage4' => 'numeric',
+            'stage5' => 'numeric',
+            'stage6' => 'numeric',
         ];
     }
 }
