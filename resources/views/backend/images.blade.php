@@ -41,7 +41,7 @@
                             <td><img src="{{  $image->takeImg }}" alt="Error" height="200" width="200"> </td>
                             <td>
                                 @if (Auth::user()->king())
-                                <button ref="deleteparticipant" v-on:click="deleteparticipant({{ $participant->id }})" class="btn btn-danger btn-sm d-inline-block"><i class="fa fa-trash"></i></button>
+                                <button ref="deleteImage" v-on:click="deleteImage({{ $image->id }})" class="btn btn-danger btn-sm d-inline-block"><i class="fa fa-trash"></i></button>
                                 @endif
                             </td>
                         </tr>    
@@ -67,7 +67,7 @@
         var app = new Vue({
             el: '#app',
             methods: {
-                deleteAdmin(id) {
+                deleteImage(id) {
                     swal({
                             title: "Apakah kamu yakin?",
                             text: "Setelah dihapus, Anda tidak akan dapat memulihkan file  ini!",
@@ -81,9 +81,9 @@
                                     icon: "success",
                                 });
                                 axios
-                                    .delete('/admin/' + id)
+                                    .delete('/image/' + id)
                                     .then((response) => {
-                                    this.$refs.deleteAdmin.parentNode.parentNode.remove();
+                                    this.$refs.deleteImage.parentNode.parentNode.remove();
                                     location.reload();
                                     });
                             } else {

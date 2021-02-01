@@ -17,9 +17,11 @@ class ParticipantController extends Controller
 
     public function destroy($id)
     {
-        $participant = Participant::finOrFail($id);
-        dd($participant->images->img);
-        Storage::delete($participant->images->img);
+        $participant = Participant::findOrFail($id);
+        // Delete image relation form storage
+        foreach ($participant->images as $image) {
+            Storage::delete($image->img);
+        }
         $participant->delete();
     }
 }
