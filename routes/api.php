@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\{ApiFinishController, ApiImageController, ApiPositionController, ApiRegisterController};
+use App\Http\Controllers\API\{ApiFinishController, ApiGameController, ApiImageController, ApiPositionController, ApiRegisterController};
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +37,7 @@ Route::prefix('finish')->group(function(){
 
 // Image
 Route::post('image/{participant:id}', ApiImageController::class);
+
+// Data Game
+Route::get('game', [ApiGameController::class, 'index']);
+Route::get('game/{game:slug}', [ApiGameController::class, 'show']);
