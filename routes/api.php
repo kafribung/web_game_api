@@ -26,13 +26,13 @@ Route::get('position', ApiPositionController::class);
 // Registrasi Peserta
 Route::prefix('register')->group(function(){
     Route::get('/{participant:id}',[ApiRegisterController::class, 'show']);
-    Route::patch('/{participant:id}', [ApiRegisterController::class, 'update']);
+    Route::put('/{participant:id}', [ApiRegisterController::class, 'update']);
 });
 
 // Finish
 Route::prefix('finish')->group(function(){
     Route::get('/{participant:id}',[ApiFinishController::class, 'show']);
-    Route::patch('/{participant:id}', [ApiFinishController::class, 'update']);
+    Route::put('/{participant:id}', [ApiFinishController::class, 'update']);
 });
 
 // Image
