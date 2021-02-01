@@ -15,11 +15,12 @@ Route::middleware('admin')->group(function(){
     Route::resource('game', GameController::class);
     // Participant
     Route::get('participant', [ParticipantController::class, 'index'])->name('participant.index');
+    Route::delete('participant/{id}', [ParticipantController::class, 'destroy'])->name('participant.destroy');
     // Participant IMG
     Route::get('image/{participant:id}', [ImageController::class, 'show'])->name('image.index');
     Route::delete('image/{participant:id}', [ImageController::class, 'destroy'])->name('image.destroy');
 
-    // QRCode
+    // QRCode Participant
     Route::prefix('qr-code')->group(function(){
         Route::get('/{id}', [QrcodeController::class, 'index']);
         Route::post('/{id}/print', [QrcodeController::class, 'print']);

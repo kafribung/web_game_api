@@ -62,7 +62,7 @@
                                 <a href="/image/{{ $participant->id }}" class="btn btn-info btn-sm"><i class="fa fa-images"></i></a>
                                 @if (Auth::user()->king())
                                 <a href="/qr-code/{{ $participant->id }}" class="btn btn-dark btn-sm"><i class="fa fa-qrcode"></i></a>
-                                <button ref="deleteparticipant" v-on:click="deleteparticipant({{ $participant->id }})" class="btn btn-danger btn-sm d-inline-block"><i class="fa fa-trash"></i></button>
+                                <button ref="deleteParticipant" v-on:click="deleteParticipant({{ $participant->id }})" class="btn btn-danger btn-sm d-inline-block"><i class="fa fa-trash"></i></button>
                                 @endif
                             </td>
                         </tr>    
@@ -91,7 +91,7 @@
         var app = new Vue({
             el: '#app',
             methods: {
-                deleteAdmin(id) {
+                deleteParticipant(id) {
                     swal({
                             title: "Apakah kamu yakin?",
                             text: "Setelah dihapus, Anda tidak akan dapat memulihkan file  ini!",
@@ -105,9 +105,9 @@
                                     icon: "success",
                                 });
                                 axios
-                                    .delete('/admin/' + id)
+                                    .delete('/participant/' + id)
                                     .then((response) => {
-                                    this.$refs.deleteAdmin.parentNode.parentNode.remove();
+                                    this.$refs.deleteParticipant.parentNode.parentNode.remove();
                                     location.reload();
                                     });
                             } else {
