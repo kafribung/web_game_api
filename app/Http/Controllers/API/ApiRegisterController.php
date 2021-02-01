@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Models\Participant;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\API\RegisterRequest;
-use App\Http\Resources\ParticipantResource;
-use App\Models\Travel;
-use Illuminate\Http\Request;
+use App\Http\Resources\API\RegisterResource;
 
 class ApiRegisterController extends Controller
 {
-    public function __invoke(RegisterRequest $request)
+    // Show
+    public function show(Participant $participant)
+    {
+        return RegisterResource::make($participant);
+    }
+
+    // Update
+    public function update(RegisterRequest $request)
     {
         $data = $request->validated();
         dd($data);

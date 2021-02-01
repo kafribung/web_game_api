@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\{ApiPositionController, ApiRegisterController, ApiQrCodeController};
+use App\Http\Controllers\API\{ApiPositionController, ApiRegisterController};
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +22,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // Jabatan
 Route::get('position', ApiPositionController::class);
 
-// Peserta (Qr-Code)
-Route::get('qrcode/{participant:id}', ApiQrCodeController::class);
-
 
 // Registrasi Peserta
-Route::patch('register/{participant:id}', [ApiRegisterController::class, 'update']);
+Route::prefix('register')->group(function(){
+    Route::get('/{participant:id}',[ApiRegisterController::class, 'show']);
+    Route::patch('/{participant:id}', [ApiRegisterController::class, 'update']);
+});
+
