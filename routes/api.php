@@ -29,3 +29,5 @@ Route::prefix('register')->group(function(){
     Route::patch('/{participant:id}', [ApiRegisterController::class, 'update']);
 });
 
+// Finish
+

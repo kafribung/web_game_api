@@ -12,6 +12,9 @@ class Participant extends Model
     // Touches
     protected $touches = ['position'];
 
+    // Mass assignment
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
     // Relation many to one
     public function position()
     {
