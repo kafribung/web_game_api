@@ -30,13 +30,19 @@
                             <th>#</th>
                             <th>Nama</th>
                             <th>Hp</th>
-                            <th>Jabatan</th>
-                            <th>Tahap1</th>
-                            <th>Tahap2</th>
-                            <th>Tahap3</th>
-                            <th>Tahap4</th>
-                            <th>Tahap5</th>
-                            <th>Tahap6</th>
+                            <th>Fungsi</th>
+                            <th class="bg-success">Lucky Spin</th>
+                            <th class="bg-success">Time1</th>
+                            <th class="bg-heavy-rain">I Found</th>
+                            <th class="bg-heavy-rain">Time2</th>
+                            <th class="bg-success">Jigsaw Pzl</th>
+                            <th class="bg-success">Time3</th>
+                            <th class="bg-heavy-rain">Teka Teki</th>
+                            <th class="bg-heavy-rain">Time4</th>
+                            <th class="bg-success">CLSR</th>
+                            <th class="bg-success">Time5</th>
+                            <th class="bg-heavy-rain">Scrrabbel Me</th>
+                            <th class="bg-heavy-rain">Time6</th>
                             <th>Total</th>
                             <th>Action</th>
                         </tr>
@@ -51,12 +57,18 @@
                             <td>{{ empty($participant->name) ? '-' :  $participant->name  }}</td>
                             <td>{{ empty($participant->hp) ? '-' : $participant->hp  }}</td>
                             <td>{{ $participant->position->name }}</td>
-                            <td>{{ $stage1 = $participant->stage1 }}</td>
+                            <td class="bg-light">{{ $stage1 = $participant->stage1 }}</td>
+                            <td class="bg-light">{{ round($participant->time1 / 60) }} menit</td>
                             <td>{{ $stage2 = $participant->stage2 }}</td>
-                            <td>{{ $stage3 = $participant->stage3 }}</td>
+                            <td>{{ round($participant->time2 / 60) }} menit</td>
+                            <td class="bg-light">{{ $stage3 = $participant->stage3 }}</td>
+                            <td class="bg-light">{{ round($participant->time3 / 60 ) }} menit</td>
                             <td>{{ $stage4 = $participant->stage4 }}</td>
-                            <td>{{ $stage5 = $participant->stage5 }}</td>
+                            <td>{{ round($participant->time4 / 60) }} menit</td>
+                            <td class="bg-light">{{ $stage5 = $participant->stage5 }}</td>
+                            <td class="bg-light">{{ round($participant->time5 / 60) }} menit</td>
                             <td>{{ $stage6 = $participant->stage6 }}</td>
+                            <td>{{ round($participant->time6 / 60) }} menit</td>
                             <td>{{ ($stage1 + $stage2 + $stage3 + $stage4 + $stage5 + $stage6)  }}</td>
                             <td>
                                 <a href="/image/{{ $participant->id }}" class="btn btn-info btn-sm"><i class="fa fa-images"></i></a>
@@ -68,7 +80,7 @@
                         </tr>    
                         @empty
                         <tr>
-                            <td colspan="12"><h5>Data peserta belum ditambahkan</h5></td>
+                            <td colspan="24"><h5>Data peserta belum ditambahkan</h5></td>
                         </tr>
                         @endforelse
                         </tbody>

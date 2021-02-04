@@ -25,11 +25,17 @@ class FinishRequest extends FormRequest
     {
         return [
             'stage1' => 'numeric',
+            'time1' => 'numeric|max:300',
             'stage2' => 'numeric',
+            'time2' => 'numeric|max:300',
             'stage3' => 'numeric',
+            'time3' => 'numeric|max:300',
             'stage4' => 'numeric',
+            'time4' => 'numeric|max:300',
             'stage5' => 'numeric',
+            'time5' => 'numeric|max:300',
             'stage6' => 'numeric',
+            'time6' => 'numeric|max:300',
         ];
     }
 }
