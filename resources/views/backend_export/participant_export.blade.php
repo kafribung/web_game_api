@@ -10,9 +10,11 @@
         <th>I Found</th>
         <th>Time2</th>
         <th>Jigsaw Pzl</th>
+        <th>Time3</th>
         <th>Teka Teki</th>
         <th>Time4</th>
         <th>CLSR</th>
+        <th>Time5</th>
         <th>Scrrabbel Me</th>
         <th>Time6</th>
         <th>Total</th>
