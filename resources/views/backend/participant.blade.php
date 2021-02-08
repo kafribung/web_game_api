@@ -56,7 +56,7 @@
                             <th scope="row">{{ $angkaAwal++ }}</th>
                             <td>{{ empty($participant->name) ? '-' :  $participant->name  }}</td>
                             <td>{{ empty($participant->hp) ? '-' : $participant->hp  }}</td>
-                            <td>{{ $participant->position->name }}</td>
+                            <td>{{ \App\Models\Position::where('id', $participant->position_id)->first()->name }}</td>
                             <td class="bg-light">{{ $stage1 = $participant->stage1 }}</td>
                             <td class="bg-light">{{ round($participant->time1 / 60) }} menit</td>
                             <td>{{ $stage2 = $participant->stage2 }}</td>
@@ -69,7 +69,7 @@
                             <td class="bg-light">{{ round($participant->time5 / 60) }} menit</td>
                             <td>{{ $stage6 = $participant->stage6 }}</td>
                             <td>{{ round($participant->time6 / 60) }} menit</td>
-                            <td>{{ ($stage1 + $stage2 + $stage3 + $stage4 + $stage5 + $stage6)  }}</td>
+                            <td>{{ $participant->total  }}</td>
                             <td>
                                 <a href="/image/{{ $participant->id }}" class="btn btn-info btn-sm"><i class="fa fa-images"></i></a>
                                 @if (Auth::user()->king())

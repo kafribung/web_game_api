@@ -11,15 +11,12 @@ class ParticipantController extends Controller
 {
     public function index()
     {
-        // $participants = Participant::with('position')->paginate(50);
         $participantFix = Participant::whereNotNull('name')->count();
-        $participants = Participant::with('position')
-        ->orderBy('stage1', 'desc')
-        ->orderBy('stage2', 'desc')
-        ->orderBy('stage3', 'desc')
-        ->orderBy('stage4', 'desc')
-        ->orderBy('stage5', 'desc')
-        ->orderBy('stage6', 'desc')
+        $participants = DB::table('participants')
+        ->select('id', 'name', 'hp', 'stage1', 'time1', 'stage2', 'time2', 'stage3', 'time3', 'stage4', 'time4', 'stage5', 'time5', 'stage6', 'time6','position_id', 
+        DB::raw('SUM(stage1 + stage2 + stage3 + stage4 + stage5 + stage6) as total'))
+        ->groupBy('id', 'name', 'hp', 'stage1', 'time1', 'stage2', 'time2', 'stage3', 'time3', 'stage4', 'time4', 'stage5', 'time5', 'stage6', 'time6','position_id')
+        ->orderBy('total', 'desc')
         ->paginate(50);
         return view('backend.participant', compact('participants', 'participantFix'));
     }
