@@ -24,6 +24,9 @@
             <div class="main-card mb-3 card">
                 <div class="card-body">
                     <h5 class="card-title">Data peserta (Yang Telah Regis: {{ $participantFix }} Orang)</h5>
+                    @if (Auth::user()->king())
+                    <a href="/participant/export" class="btn btn-success btn-sm float-right"><i class="fa fa-file-excel">Export Excel</i></a>
+                    @endif
                     <table class="mb-0 table table-hover">
                         <thead>
                         <tr>
